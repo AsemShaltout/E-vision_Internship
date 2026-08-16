@@ -4,8 +4,9 @@ import {
     useTable,
 } from '@tanstack/react-table'
 import { useFetchCustomers } from '../services/quiries'
-import { Pencil, Plus, Trash2 } from 'lucide-react'
+import { Eye, Pencil, Plus, Trash2 } from 'lucide-react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import type { Customer } from '../schema/customer'
 import { useDeleteCustomer } from '../services/mutations'
@@ -57,6 +58,13 @@ export function CustomersTable() {
             header: 'Actions',
             cell: ({ row }) => (
                 <div className="flex items-center gap-2">
+                    <Link
+                        to={`/customers/${row.original.id}`}
+                        className="rounded-md p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground"
+                        title="View customer"
+                    >
+                        <Eye className="h-4 w-4" />
+                    </Link>
                     <button
                         onClick={() => edit(row.original)}
                         className="rounded-md p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground"

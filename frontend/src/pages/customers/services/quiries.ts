@@ -14,3 +14,12 @@ export const useFetchCustomers = () => {
         staleTime: 1 * 60 * 1000,
     });
 };
+
+export const useFetchCustomer = (id: number) => useQuery({
+    queryKey: ["customers", "detail", id],
+    queryFn: async (): Promise<Customer> => {
+        const response = await axiosInstance.get(`/customers/${id}`)
+        return response.data
+    },
+    enabled: Number.isFinite(id),
+})

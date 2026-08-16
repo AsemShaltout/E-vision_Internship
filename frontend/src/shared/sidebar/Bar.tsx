@@ -22,6 +22,7 @@ import {
 const mainNav = [
     { title: "Overview", url: "/overview", icon: LayoutDashboard },
     { title: "Customers", url: "/customers", icon: Users },
+    { title: "Accounts", url: "/accounts", icon: Landmark },
 ];
 
 export default function Bar() {
