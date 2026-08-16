@@ -1,7 +1,8 @@
 import axiosInstance from "@/network/axiosInstance";
+import type { Customer } from "../schema/customer";
 import { useQuery } from "@tanstack/react-query";
 
-const fetchCustomers = async () => {
+const fetchCustomers = async (): Promise<Customer[]> => {
     const response = await axiosInstance.get("/customers");
     return response.data;
 };
